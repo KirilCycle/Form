@@ -1,53 +1,43 @@
 import React, { useState, useRef, useEffect } from "react";
-import useRefs from "../../hooks/useRefs";
 import s from "./styles/HelpForm.module.scss";
-import DisplayPanel from "../DisplayPanel/DisplayPanel";
-import ArrowPanel from "../ArrowPanel/ArrowPanel";
+import HelpBodyWrapper from "../HelpBodyWrapper/HelpBodyWrapper";
 import FinancialHelpForm from "./components/FinancialHelpForm/FinancialHelpForm";
+import PointerSlot from "../PointerSlot/PointerSlot";
+
 
 const helpBodies = {
-  Financial: <FinancialHelpForm />,
+  financial: <FinancialHelpForm />,
+  action: <p>Action</p>,
+  material: <p>Material</p>,
+  volunteer: <p>Volunteer</p>,
 };
 
+const helpTypes = [
+  {
+    type: "action",
+    title: "Financial SUS aada",
+  },
+  {
+    type: "financial",
+    title: "Financial",
+  },
+  {
+    type: "material",
+    title: "Financial",
+  },
+  {
+    type: "volunteer",
+    title: "Financial",
+  },
+];
+
 const HelpForm = () => {
-  const [activeHelpType, setActiveTypeHelp] = useState("Financial");
-  const [arrowXpos, setArrowXpos] = useState(0);
-  const { refsByKey, setRef } = useRefs();
+  const [activeHelpType, setActiveTypeHelp] = useState("financial");
 
-
-  useEffect(() => {
-    const defaultHelpTypeBtn = refsByKey[activeHelpType]
-    if (defaultHelpTypeBtn) {
-      const xPosition = defaultHelpTypeBtn.getBoundingClientRect().left;
-      setArrowXpos(xPosition)
-    }
-  },[])
-
-  const selectHelpType = (currTarget, type) => {
-    console.log(refsByKey)
-    const xPosition = currTarget.getBoundingClientRect().left;
-
-    console.log("X position:", xPosition);
+  const selectHelpType = (type) => {
+    console.log(activeHelpType)
+    setActiveTypeHelp(type)
   };
-
-  const helpTypes = [
-    {
-      type: "Action",
-      title: "Financial SUS aada",
-    },
-    {
-      type: "Financial",
-      title: "Financial",
-    },
-    {
-      type: "Material",
-      title: "Financial",
-    },
-    {
-      type: "Volunteer",
-      title: "Financial",
-    },
-  ];
 
   return (
     <div className={s.helpContainer}>
@@ -57,19 +47,20 @@ const HelpForm = () => {
         {helpTypes.map(({ type, title }, i) => {
           return (
             <li className={s.helpListItem} key={type}>
-              <button
-                ref={(element) => setRef(element, type)}
-                onClick={(e) => selectHelpType(e.currentTarget, type)}
-                className={s.helpListBtn}
-              ></button>
+              <PointerSlot isActive={type === activeHelpType}>
+                <button
+                  onClick={() => selectHelpType(type)}
+                  className={s.helpListBtn}
+                ></button>
+              </PointerSlot>
               <p>{title}</p>
             </li>
           );
         })}
       </ul>
-      <ArrowPanel>
+      <HelpBodyWrapper>
         {helpBodies[activeHelpType]}
-      </ArrowPanel>
+      </HelpBodyWrapper>
     </div>
   );
 };

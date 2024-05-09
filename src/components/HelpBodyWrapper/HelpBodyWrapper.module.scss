@@ -1,7 +1,7 @@
 .arrowPanel {
     width: 100%;
     position: relative;
-    margin-top: 30px;
+    margin-top: 21px;
     width: 100%;
     min-height: 500px;
     border: 2px solid gray;
@@ -13,7 +13,7 @@
     position: absolute;
     z-index: 3;
     top: -23px;
-    left: 50px;
+    // left: 50px;
     
-    // transform: translateX(0px);
+    transform: translateX(37px);
 }
