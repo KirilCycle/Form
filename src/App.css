@@ -1,0 +1,17 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0rem;
+}
+
+
+@font-face {
+  font-family: 'Geometria';
+  src: url('../public/fonts/Geometria.ttf') format('truetype'),
+       url('../public/fonts/Geometria.woff') format('woff'),
+       url('../public/fonts/Geometria.woff2') format('woff2'),
+}
+
+* {
+  font-family: 'Geometria';
+}
