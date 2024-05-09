@@ -1,9 +1,22 @@
 .financialHelpForm {
+    padding: 10px;
     width: 100%;
     min-height: 500px;
     position: relative;
+    display: flex;
+    flex-direction: row;
     // z-index: 100;
 }
+
+.payMethodsContainer {
+  width: 50%;
+}
+
+.cardDataContainer {
+  width: 50%;
+}
+
+
  
   /* firefox leaves an artefact at certain sizes so adding a border or changing the size by a couple of px or changing the clip-path percentages can offset it.
   
