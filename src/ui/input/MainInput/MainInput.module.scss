@@ -1,0 +1,24 @@
+@use '../../../scss/colors' as *;
+
+.inputWrapper {
+
+    label {
+        display: block;
+        margin-bottom: 3px;
+    }
+
+    input {
+       border-radius: 5px;
+       border: none;
+       min-height: 30px;
+       background-color: $gray-light;
+    }
+
+    .error {
+        color: #db4437;
+        font-size: 14px;
+        font-weight: 400;
+        margin-left: 12px;
+        margin-top: 4px;
+    }
+}

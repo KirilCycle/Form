@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import s from './FinancialHelpForm.module.scss'
-import PayMethods from '../../../PayMethods/PayMethods'
+import PayMethods from '../../../../PayMethods/PayMethods'
+import CreditCardForm from '../../../../CreditCardForm/CreditCardForm'
 
 const FinancialHelpForm = () => {
   
@@ -14,6 +15,7 @@ const FinancialHelpForm = () => {
         </div>
         <div className={s.cardDataContainer}>
            <p>Введіть наступні данні</p>
+           <CreditCardForm/>
         </div>
     </div>
   )

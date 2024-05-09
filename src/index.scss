@@ -1,3 +1,5 @@
+@use 'scss/colors.scss' as *;
+
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -17,6 +19,7 @@
 */
 body {
   line-height: 1.5;
+  color: $font-gray-main;
   -webkit-font-smoothing: antialiased;
 }
 /*
