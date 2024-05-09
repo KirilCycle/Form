@@ -1,0 +1,36 @@
+
+.helpContainer {
+    width: 100%;
+    padding-top: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid red;
+}
+
+.helpList {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center; 
+    align-items: center;
+}
+
+.helpListItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    p {
+        margin-left: 20px;
+    }
+}
+
+.helpListBtn {
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    color: white;
+    background-color: rebeccapurple;
+}
+
