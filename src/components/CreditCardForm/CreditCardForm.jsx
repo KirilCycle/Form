@@ -1,24 +1,29 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useRef } from "react";
 import s from "./CreditCardForm.module.scss";
 import MainInput from "../../ui/input/MainInput/MainInput";
-import { classNames } from "../../utils/styling";
 
-const CreditCardForm = () => {
-  const [ccNumber, setCcNumber] = useState("");
+const CreditCardForm = ({ cardState, setCardState, errorMessages }) => {
   const firstInputRef = useRef(null);
 
   function collectIputValues() {
     let current = firstInputRef.current;
     let sumValue = "";
     while (current) {
-        sumValue += current.value;
-        current = current.nextElementSibling;
+      sumValue += current.value;
+      current = current.nextElementSibling;
     }
-    console.log(sumValue,'aa');
-    setCcNumber(sumValue);
+    setCardState((prev) => {
+      return { ...prev, number: sumValue };
+    });
   }
 
-  const handleCctyping = (e) => {
+  function handleInput(e) {
+    setCardState((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  }
+
+  function handleCctyping(e) {
     const input = e.target;
     const key = e.key;
 
@@ -82,9 +87,9 @@ const CreditCardForm = () => {
         onInputChange(input, key);
       }
     }
-    //put this to macrotask to await for input changes
+    //put this to macrotask queue to await for input changes
     setTimeout(collectIputValues);
-  };
+  }
 
   function onInputChange(input, newValue) {
     const start = input.selectionStart;
@@ -119,7 +124,7 @@ const CreditCardForm = () => {
     currInput.selectionEnd = addedChars;
   }
 
-  const onInputPaste = (e) => {
+  function onInputPaste(e) {
     const input = e.target;
     const data = e.clipboardData.getData("text");
 
@@ -128,7 +133,7 @@ const CreditCardForm = () => {
     e.preventDefault();
     onInputChange(input, data);
     setTimeout(collectIputValues);
-  };
+  }
 
   return (
     <form className={s.card}>
@@ -137,7 +142,7 @@ const CreditCardForm = () => {
         onPaste={onInputPaste}
         onKeyDown={handleCctyping}
         className={s.ccInputs}
-      >
+      >  
         <input
           ref={firstInputRef}
           type="tel"
@@ -168,9 +173,26 @@ const CreditCardForm = () => {
           required
           pattern="[0-9]{4}"
         />
+        {errorMessages.number && <p className={s.error}>{errorMessages.number}</p>}
       </div>
-      <MainInput label="Термін дії" required />
-      <MainInput type='tell' maxLength="4" label="CVC/CVV" required />
+      <MainInput
+        value={cardState.expiry}
+        onChange={handleInput}
+        error={errorMessages.expiry}
+        name="expiry"
+        label="Термін дії"
+        required
+      />
+      <MainInput
+        value={cardState.cvc}
+        onChange={handleInput}
+        error={errorMessages.cvc}
+        name="cvc"
+        type="tell"
+        maxLength="4"
+        label="CVC/CVV"
+        required
+      />
     </form>
   );
 };

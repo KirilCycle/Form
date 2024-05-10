@@ -30,6 +30,7 @@ const HelpForm = () => {
 
 
   const submitForm = (e) => {
+    console.log(formRef.current,payMethod);
      setErrorMessages({
       name: 'Please enter',
       surname: 'Please enter',

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import s from "./FinancialHelpForm.module.scss";
 import CreditCardForm from "../../../../CreditCardForm/CreditCardForm";
 
@@ -26,6 +26,20 @@ const providers = [
 ];
 
 const FinancialHelpForm = ({ formRef, errorMessages, setPayMethod }) => {
+  const [cardState, setCardState] = useState({
+    cvc: "",
+    expiry: "",
+    number: "",
+  });
+
+  useEffect(() => {
+    formRef.current = { ...formRef.current, ...cardState };
+
+    return () => {
+      formRef.current = { ...formRef.current, cvc: "", expiry: "", number: "" };
+    };
+  }, [cardState]);
+
   return (
     <div className={s.financialHelpForm}>
       <div className={s.payMethodsContainer}>
@@ -45,7 +59,7 @@ const FinancialHelpForm = ({ formRef, errorMessages, setPayMethod }) => {
       </div>
       <div className={s.cardDataContainer}>
         <p>Введіть наступні данні</p>
-        <CreditCardForm />
+        <CreditCardForm errorMessages={errorMessages} cardState={cardState} setCardState={setCardState} />
       </div>
     </div>
   );
