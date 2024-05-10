@@ -16,6 +16,17 @@
   width: 50%;
 }
 
+.payMethodsList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.provider {
+  width: 100%;
+  min-height: 80px;
+}
+
 
  
   /* firefox leaves an artefact at certain sizes so adding a border or changing the size by a couple of px or changing the clip-path percentages can offset it.

@@ -1,27 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "./PhysicalPersonFrom.module.scss";
 import MainInput from "../../../../../../ui/input/MainInput/MainInput";
 
-const PhysicalPersonForm = () => {
+const PhysicalPersonForm = ({formRef, errorMessages = {} }) => {
+
+  const handleChange = (e) => {
+    formRef.current[e.target.name] = e.target.value
+  }
+
   return (
       <form className={s.panelForm} >
-        <fieldset>
+        <fieldset> 
           <div className={s.horizontal}>
-            <MainInput label="Імя" />
-            <MainInput label="Фамілія" />
+            <MainInput onChange={handleChange} error={errorMessages.name}  name="name" label="Імя" />
+            <MainInput onChange={handleChange}  error={errorMessages.surname} name="surname" label="Фамілія" />
           </div>
-          <MainInput label="Назва компанії,організації" />
-          <MainInput label="Email-адрес" />
-          <MainInput label="Номер Телефону" />
+          <MainInput onChange={handleChange}  error={errorMessages.company} name="company" label="Назва компанії,організації" />
+          <MainInput onChange={handleChange} error={errorMessages.email} type="email" name="email" label="Email-адрес" />
+          <MainInput onChange={handleChange} error={errorMessages.phone} name="phone" label="Номер Телефону" />
         </fieldset>
         <fieldset>
-          <MainInput label="Країна" />
+          <MainInput onChange={handleChange} error={errorMessages.country} name="country" label="Країна" />
           <div className={s.horizontal}>
-            <MainInput label="Місто" />
-            <MainInput label="Штат, Район" />
+            <MainInput onChange={handleChange} error={errorMessages.city} name="city" label="Місто" />
+            <MainInput onChange={handleChange} error={errorMessages.region} name="region" label="Штат, Район" />
           </div>
-          <MainInput label="Адреса" />
-          <MainInput label="Поштовий індекс" />
+          <MainInput onChange={handleChange}  error={errorMessages.address} name="address" label="Адреса" />
+          <MainInput onChange={handleChange} error={errorMessages.postcode} name="postcode" label="Поштовий індекс" />
         </fieldset>
       </form>
   );

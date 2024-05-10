@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import TabView from "./components/TabView";
 import PhysicalPerson from "./components/tabs/PhysicalPerson";
 
-const ContactForm = () => {
-  const [formState, setFormState] = useState("");
+const ContactForm = ({ formRef, errorMessages }) => {
+
 
   const tabs = [
     {
       title: "Фіз. особа",
       name: "physicalPerson",
-      body: <PhysicalPerson setFormState={setFormState} />,
+      body: <PhysicalPerson formRef={formRef} errorMessages={errorMessages} />,
     },
     {
       title: "Юр.Особа",
@@ -18,7 +18,6 @@ const ContactForm = () => {
     },
   ];
 
-  console.log(formState);
 
   return (
     <div>

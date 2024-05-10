@@ -5,13 +5,6 @@ import HelpBodyWrapper from "../../../HelpBodyWrapper/HelpBodyWrapper";
 import PointerSlot from "../../../PointerSlot/PointerSlot";
 import { keyboardNavigation } from "../../../../utils/accessebility";
 
-const helpBodies = {
-  financial: <FinancialHelpForm />,
-  action: <p>Action</p>,
-  material:  <p>Material</p>,
-  volunteer: <p>Volunteer</p>,
-};
-
 const helpTypes = [
   {
     type: "action",
@@ -31,12 +24,19 @@ const helpTypes = [
   },
 ];
 
-const HelpTypesForm = () => {
+const HelpTypesForm = ({formRef, errorMessages, setPayMethod}) => {
   const [activeHelpType, setActiveTypeHelp] = useState("financial");
 
   const selectHelpType = (type) => {
     console.log(activeHelpType);
     setActiveTypeHelp(type);
+  };
+
+  const helpBodies = {
+    financial: <FinancialHelpForm setPayMethod={setPayMethod} formRef={formRef} errorMessages={errorMessages} />,
+    action: <p>Action</p>,
+    material:  <p>Material</p>,
+    volunteer: <p>Volunteer</p>,
   };
 
   return (

@@ -33,7 +33,7 @@ const MainInput = ({
         onChange={onChange}
         disabled={disabled}
       />
-      {error && <p className={s.error}>{error}</p>}
+      {error && <span className={s.error}>{error}</span>}
     </div>
   );
 };
