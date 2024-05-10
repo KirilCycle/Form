@@ -10,12 +10,22 @@ const MainInput = ({
   error,
   disabled,
   onChange,
+  maxLength,
+  pattern,
+  required,
+  inputClassName,
+  ariaLabel,
 }) => {
   return (
     <div className={s.inputWrapper}>
-      <label htmlFor={label}>{label}</label>
+      {label && <label htmlFor={label}>{label}</label>}
       <input
+        className={inputClassName}
+        maxLength={maxLength}
+        pattern={pattern}
+        required={required}
         type={type}
+        aria-label={ariaLabel}
         id={label}
         value={value}
         name={name}
