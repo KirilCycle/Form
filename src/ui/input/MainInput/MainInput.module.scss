@@ -11,7 +11,13 @@
        border-radius: 5px;
        border: none;
        min-height: 30px;
+       width: 100%;
        background-color: $gray-light;
+    }
+
+    input:focus {
+        outline: none;
+        border: 1px solid $gray-dark;
     }
 
     .error {

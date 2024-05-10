@@ -4,7 +4,6 @@ import s from "./TabView.module.scss";
 const TabView = ({ tabs, tabButtons, active }) => {
   const [activeTab, setActiveTab] = useState(active);
 
-  console.log(tabs);
 
   return (
     <div className={s.tabs}>
