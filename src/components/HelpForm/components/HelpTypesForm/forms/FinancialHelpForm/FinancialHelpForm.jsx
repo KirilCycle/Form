@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import s from "./FinancialHelpForm.module.scss";
-import CreditCardForm from "../../../../CreditCardForm/CreditCardForm";
+import CreditCardForm from "../../../../../CreditCardForm/CreditCardForm";
 
 const providers = [
   {

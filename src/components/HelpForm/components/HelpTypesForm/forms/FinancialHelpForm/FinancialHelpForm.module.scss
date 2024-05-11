@@ -5,7 +5,6 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    // z-index: 100;
 }
 
 .payMethodsContainer {
@@ -26,12 +25,3 @@
   width: 100%;
   min-height: 80px;
 }
-
-
- 
-  /* firefox leaves an artefact at certain sizes so adding a border or changing the size by a couple of px or changing the clip-path percentages can offset it.
-  
-  It's a Firefox bug:
-  https://bugzilla.mozilla.org/show_bug.cgi?id=1671784
-  
-  */

@@ -14,11 +14,16 @@
 
 }
 
+$gap: 25px;
+
 .horizontal {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 30px;
+    gap: $gap;
     flex-direction: row;
+}
 
+.inputModifier {
+  max-width: calc(50% - $gap / 2);
 }

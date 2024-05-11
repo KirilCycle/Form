@@ -47,13 +47,13 @@ h2 {
   font-size: 68px;
   font-weight: 800;
   color: $gray-darker;
+  line-height: 75px;
 }
 /*
   7. Avoid text overflows
 */
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
-  margin: 0px;
 }
 
 

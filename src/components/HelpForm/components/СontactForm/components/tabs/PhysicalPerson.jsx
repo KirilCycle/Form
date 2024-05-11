@@ -26,7 +26,7 @@ const PhysicalPersonForm = ({formRef, errorMessages = {} }) => {
             <MainInput onChange={handleChange} error={errorMessages.region} name="region" label="Штат, Район" />
           </div>
           <MainInput onChange={handleChange}  error={errorMessages.address} name="address" label="Адреса" />
-          <MainInput onChange={handleChange} error={errorMessages.postcode} name="postcode" label="Поштовий індекс" />
+          <MainInput inputClassName={s.inputModifier} onChange={handleChange} error={errorMessages.postcode} name="postcode" label="Поштовий індекс" />
         </fieldset>
       </form>
   );
