@@ -1,0 +1,17 @@
+@use '../../scss/colors'  as *;
+
+.mainBtn {
+    padding: 15px;
+}
+
+.active {
+    background-color: $gray-darker;
+    color: $white;
+    border: 3px solid $gray-darker;    
+}
+
+.default {
+    background-color: $white;
+    color: $gray-darker;
+    border: 3px solid $gray-darker;    
+}

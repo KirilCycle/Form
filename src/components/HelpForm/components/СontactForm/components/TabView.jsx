@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import s from "./TabView.module.scss";
 import { keyboardNavigation } from "../../../../../utils/accessebility";
+import MainButton from "../../../../../ui/button/MainButton";
 
 const TabView = ({ tabs, active }) => {
   const [activeTab, setActiveTab] = useState(active);
@@ -9,10 +10,10 @@ const TabView = ({ tabs, active }) => {
     <div className={s.tabs}>
       <div className={s.tabButtons}>
         {tabs.map((tab, i) => {
-          const isActive = tab.name === active;
+          const isActive = tab.name === activeTab;
 
           return (
-            <button
+            <MainButton
               role="tab"
               type="button"
               id={`tab-${tab.name}`}
@@ -23,13 +24,12 @@ const TabView = ({ tabs, active }) => {
                 keyboardNavigation(e, i, tabs, "name", setActiveTab)
               }
               key={tab.name}
-              className={
-                isActive ? `${s.tabButton} ${s.tabButtonActive}` : s.tabButton
-              }
+              isActive={isActive}
+              className={i === tabs.length - 1 ? s.tabLast : i === 0 ? s.tabFirst : s.tabMiddle }
               onClick={() => setActiveTab(tab.name)}
             >
               {tab.title}
-            </button>
+            </MainButton>
           );
         })}
       </div>

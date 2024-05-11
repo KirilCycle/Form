@@ -1,10 +1,13 @@
-import React from 'react'
-import s from './MainButton.module.scss'
+import React from "react";
+import s from "./MainButton.module.scss";
+import { classNames } from "../../utils/styling";
 
-const MainButton = () => {
+const MainButton = ({ children, className, isActive,  ...options }) => {
   return (
-    <div>MainButton</div>
-  )
-}
+    <button {...options} className={classNames(s.mainBtn, isActive ? s.active : s.default  ,className)}>
+      {children}
+    </button>
+  );
+};
 
-export default MainButton
+export default MainButton;
