@@ -1,19 +1,53 @@
 #root {
-  max-width: 1360px;
+  max-width: 1365px;
   margin: 0 auto;
+  border: 1px solid red;
   padding: 0rem;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 60px;
+  font-family: 'Geometria';
+  padding-right: 60px;
 }
 
 
 @font-face {
   font-family: 'Geometria';
-  src: url('../public/fonts/Geometria.ttf') format('truetype'),
-       url('../public/fonts/Geometria.woff') format('woff'),
-       url('../public/fonts/Geometria.woff2') format('woff2'),
+  src:
+    url('../public/fonts/Geometria-Bold.eot?#iefix') format('embedded-opentype'), /* For IE compatibility */
+    url('../public/fonts/Geometria-Bold.woff2') format('woff2'),  /* Modern browsers (preferred) */
+    url('../public/fonts/Geometria-Bold.woff') format('woff'),    /* Older browsers (fallback) */
+    url('../public/fonts/Geometria-Bold.ttf') format('truetype');  /* Legacy fallback */
+  font-weight: bold;
+  font-style: normal;
 }
 
-* {
+@font-face {
   font-family: 'Geometria';
+  src:
+    url('../public/fonts/Geometria-ExtraBold.eot?#iefix') format('embedded-opentype'),
+    url('../public/fonts/Geometria-ExtraBold.woff2') format('woff2'),
+    url('../public/fonts/Geometria-ExtraBold.woff') format('woff'),
+    url('../public/fonts/Geometria-ExtraBold.ttf') format('truetype');
+  font-weight: 800; /* Or a specific weight for extra bold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src:
+    url('../public/fonts/Geometria-Light.eot?#iefix') format('embedded-opentype'),
+    url('../public/fonts/Geometria-Light.woff2') format('woff2'),
+    url('../public/fonts/Geometria-Light.woff') format('woff'),
+    url('../public/fonts/Geometria-Light.ttf') format('truetype');
+  font-weight: 300; /* Or a specific weight for light */
+  font-style: normal;
+}
+
+@font-face { /* Default font (optional) */
+  font-family: 'Geometria';
+  src:
+    url('../public/fonts/Geometria.eot?#iefix') format('embedded-opentype'), /* For IE compatibility */
+    url('../public/fonts/Geometria.woff2') format('woff2'),  /* Modern browsers (preferred) */
+    url('../public/fonts/Geometria.woff') format('woff'),    /* Older browsers (fallback) */
+    url('../public/fonts/Geometria.ttf') format('truetype');  /* Legacy fallback */
+  font-style: normal;
 }

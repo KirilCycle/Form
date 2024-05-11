@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import s from "./TabView.module.scss";
 import { keyboardNavigation } from "../../../../../utils/accessebility";
 import MainButton from "../../../../../ui/button/MainButton";
+import { classNames } from "../../../../../utils/styling";
 
 const TabView = ({ tabs, active }) => {
   const [activeTab, setActiveTab] = useState(active);
 
   return (
-    <div className={s.tabs}>
+    <div className={s.tabView}>
       <div className={s.tabButtons}>
         {tabs.map((tab, i) => {
           const isActive = tab.name === activeTab;
@@ -25,7 +26,7 @@ const TabView = ({ tabs, active }) => {
               }
               key={tab.name}
               isActive={isActive}
-              className={i === tabs.length - 1 ? s.tabLast : i === 0 ? s.tabFirst : s.tabMiddle }
+              className={classNames(i === tabs.length - 1 ? s.tabLast : i === 0 ? s.tabFirst : s.tabMiddle, s.tab) }
               onClick={() => setActiveTab(tab.name)}
             >
               {tab.title}
@@ -37,7 +38,7 @@ const TabView = ({ tabs, active }) => {
         {tabs.map(({name, body}) => {
           const isActive = name === activeTab
           return (
-            <div role="tabpanel" aria-labelledby={`tab-${name}`} id={`tabpanel-${name}`} tabIndex="0" key={name} onClick={() => setActiveTab(name)} className={ isActive ? s.tabWrapper : s.hidden}>
+            <div role="tabpanel" aria-labelledby={`tab-${name}`} id={`tabpanel-${name}`} tabIndex="0" key={name} onClick={() => setActiveTab(name)} style={{display: `${isActive ? 'block' : 'none'}`}}  className={s.tabWrapper}>
               {body}
             </div>
           );

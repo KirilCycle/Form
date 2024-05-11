@@ -1,17 +1,20 @@
 @use '../../scss/colors'  as *;
 
 .mainBtn {
-    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    border: 2px solid $gray-darker;   
 }
 
 .active {
     background-color: $gray-darker;
-    color: $white;
-    border: 3px solid $gray-darker;    
+    color: $white;   
 }
 
 .default {
     background-color: $white;
-    color: $gray-darker;
-    border: 3px solid $gray-darker;    
+    color: $gray-darker;   
 }

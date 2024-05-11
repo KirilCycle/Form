@@ -2,16 +2,21 @@
 
 .inputWrapper {
     position: relative;
+    width: 100%;
+    margin-bottom: 30px;
 
     label {
         display: block;
-        margin-bottom: 3px;
+        padding: 0px;
+        font-size: 16px;
+        font-weight: 600;
     }
 
     input {
        border-radius: 5px;
        border: none;
        min-height: 30px;
+       min-height: 45px;
        width: 100%;
        background-color: $gray-light;
     }
