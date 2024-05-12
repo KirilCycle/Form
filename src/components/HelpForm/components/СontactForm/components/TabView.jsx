@@ -4,9 +4,15 @@ import { keyboardNavigation } from "../../../../../utils/accessebility";
 import MainButton from "../../../../../ui/button/MainButton/MainButton";
 import { classNames } from "../../../../../utils/styling";
 
+
 const TabView = ({ tabs, active }) => {
   const [activeTab, setActiveTab] = useState(active);
 
+    //================================================================
+    //
+    //i decided not to use ul and li tags, for tabs component according to W3C
+    //
+    //================================================================
   return (
     <div className={s.tabView}>
       <div role="tablist" className={s.tabButtons}>

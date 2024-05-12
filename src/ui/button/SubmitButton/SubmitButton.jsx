@@ -2,9 +2,9 @@ import React from 'react'
 import s from './SubmitButton.module.scss'
 import { classNames } from '../../../utils/styling'
 
-const SubmitButton = ({ children, buttonClassName}) => {
+const SubmitButton = ({ children, buttonClassName, onClick}) => {
   return (
-    <button className={classNames(s.submitBtn, buttonClassName)} >{children ? children: 'Відправити' }</button>
+    <button onClick={(e) => onClick(e)} className={classNames(s.submitBtn, buttonClassName)} >{children ? children: 'Відправити' }</button>
   )
 }
 

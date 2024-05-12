@@ -26,6 +26,7 @@ const CreditCardForm = ({ cardState, setCardState, errorMessages }) => {
   function handleCctyping(e) {
     const input = e.target;
     const key = e.key;
+    if (!isConnectedInput(input)) return
 
     switch (key) {
       case "ArrowLeft": {
@@ -92,21 +93,21 @@ const CreditCardForm = ({ cardState, setCardState, errorMessages }) => {
   }
 
   function onInputChange(input, newValue) {
-    const start = input.selectionStart;
-    const end = input.selectionEnd;
-    updateInputValue(input, newValue, start, end);
-    focusInput(input, newValue.length + start);
+    const start = input.selectionStart
+    const end = input.selectionEnd
+    updateInputValue(input, newValue, start, end)
+    focusInput(input, newValue.length + start)
   }
 
   function updateInputValue(input, extraValue, start = 0, end = 0) {
-    const newValue = `${input.value.substring(
+    const newValue = `${input?.value?.substring(
       0,
       start
     )}${extraValue}${input.value.substring(end, 4)}`;
     input.value = newValue.substring(0, 4);
     if (newValue > 4) {
       const next = input.nextElementSibling;
-      if (next === null) return;
+      if (next == null) return;
       updateInputValue(next, newValue.substring(4));
     }
   }
@@ -133,6 +134,10 @@ const CreditCardForm = ({ cardState, setCardState, errorMessages }) => {
     e.preventDefault();
     onInputChange(input, data);
     setTimeout(collectIputValues);
+  }
+
+  function isConnectedInput(input) {
+    return input.matches("input")
   }
 
   return (
