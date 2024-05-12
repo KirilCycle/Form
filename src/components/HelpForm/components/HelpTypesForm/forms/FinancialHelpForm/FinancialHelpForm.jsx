@@ -71,12 +71,14 @@ const FinancialHelpForm = ({ formRef, errorMessages, setPayMethod, activePayMeth
         </ul>
       </div>
       <div className={s.cardDataContainer}>
+        <div className={s.cardDataContent}>
         <p className={s.title}>Введіть наступні данні</p>
         <CreditCardForm
           errorMessages={errorMessages}
           cardState={cardState}
           setCardState={setCardState}
         />
+        </div>
       </div>
     </div>
   );
