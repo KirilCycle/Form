@@ -24,6 +24,7 @@ const HelpTypesButtonsList = ({
           >
             <PointerSlot isActive={isActive}>
               <button
+                type="button"
                 role="tab"
                 id={`tab-${type}`}
                 aria-controls={`tabpanel-${type}`}
