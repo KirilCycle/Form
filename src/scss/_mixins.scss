@@ -5,11 +5,12 @@
     padding-left: $padding;
     border: none;
     min-height: $min-height;
+    border: 1px solid $gray-light;
     width: 100%;
     background-color: $gray-light;
   
     &:focus {
       outline: none;
-      border: 1px solid $gray-dark;
+      border: 1px solid $blue;
     }
   }

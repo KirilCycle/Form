@@ -1,11 +1,12 @@
 @use '../../../../../../scss/colors' as *;
+@use '../../../../../../scss/gaps' as *;
 
 .financialHelpForm {
   width: 100%;
   min-height: 270px;
   box-sizing: border-box;
   position: relative;
-  padding: 20px;
+  padding: $gap-medium;
   display: flex;
   flex-direction: row;
 }
@@ -30,13 +31,20 @@
 
 .cardDataContainer {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+
+.cardDataContainer {
+  width: 50%;
 }
 
 .payMethodsList {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
-  ;
+  grid-gap: $gap-medium;
 }
 
 .payMethodButton {
@@ -73,7 +81,8 @@
 
 .logoWrapper {
   height: 100%;
-  padding-top: 5px;box-sizing: border-box;
+  padding-top: 5px;
+  box-sizing: border-box;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -86,9 +95,34 @@
 
 }
 
-.cardDataContainer {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+@media (max-width: 980px) {
+  .financialHelpForm {
+    flex-direction: column;
+    gap: $gap-medium;
+  }
+
+  .payMethodsContainer {
+    width: 100%;
+  }
+
+  .cardDataContainer {
+    width: 100%;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 500px) { 
+  .payMethodsList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 455px) {
+  .payMethodsList {
+    gap: $gap-small;
+  }
+
+  .financialHelpForm {
+    gap: $gap-small;
+  }
 }

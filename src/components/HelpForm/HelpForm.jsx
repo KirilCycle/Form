@@ -22,7 +22,7 @@ const inputFields = {
 
 const HelpForm = () => {
   const [errorMessages, setErrorMessages] = useState({});
-  const [payMethod, setPayMethod] = useState(null);
+  const [payMethod, setPayMethod] = useState('privat');
 
   const formRef = useRef({});
 
@@ -53,7 +53,9 @@ const HelpForm = () => {
     <div className={s.formContainer}>
       <ContactForm errorMessages={errorMessages} formRef={formRef} />
       <HelpTypesForm errorMessages={errorMessages} payMethod={payMethod} setPayMethod={setPayMethod} formRef={formRef}  />
-      <SubmitButton/>
+      <SubmitButton>
+        Допомогти
+      </SubmitButton>
     </div>
   );
 };

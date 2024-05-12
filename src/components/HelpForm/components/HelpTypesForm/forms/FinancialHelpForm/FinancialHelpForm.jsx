@@ -9,24 +9,29 @@ import terminal from "../../../../../../assets/icons/png/terminal.png";
 import { classNames } from "../../../../../../utils/styling";
 
 const providers = [
-  {
+  { 
+    text: "Visa",
     name: "Visa",
     logo: visaico,
   },
-  {
-    name: "Приват 24",
+  {  
+    text: "Приват 24",
+    name: "privat",
     logo: privat,
   },
-  {
+  { 
+    text: "PayPal",
     name: "PayPal",
     logo: paypal,
   },
   {
+    text: "WebMoney",
     name: "WebMoney",
     logo: webmoney,
   },
   {
-    name: "Термінал України",
+    text: "Термінал України",
+    name: "terminal",
     logo: terminal,
   },
 ];
@@ -46,6 +51,7 @@ const FinancialHelpForm = ({ formRef, errorMessages, setPayMethod, activePayMeth
     };
   }, [cardState]);
 
+  console.log(activePayMethod, 'A')
 
   return (
     <div className={s.financialHelpForm}>
@@ -60,10 +66,10 @@ const FinancialHelpForm = ({ formRef, errorMessages, setPayMethod, activePayMeth
                     <img
                       className={s.payMethodLogo}
                       src={p.logo}
-                      alt={p.name}
+                      alt={p.text}
                     />
                   </div>
-                  <p>{p.name}</p>
+                  <p>{p.text}</p>
                 </button>
               </li>
             );

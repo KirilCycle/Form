@@ -1,16 +1,18 @@
 @use '../../../../../../scss/colors' as *;
 
 .helpTypesList {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
     max-width: 1190px;
-    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
     align-items: center;
 }
 
 .helpType {
     display: flex;
     flex-direction: row;
+    flex: 3;
     align-items: center;
 
     p {
@@ -29,7 +31,7 @@
 .helpListBtn {
     width: 50px;
     height: 50px;
-    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, .2s ease-in-out 0s;
     border-radius: 15px;
     padding: 15px;
     box-sizing: content-box;
@@ -44,7 +46,14 @@
         fill: $outline;
     }
 
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            transform: scale(1.05); 
+        }
+    }
+
 }
+
 
 .activeBtn {
     @include border($purple);
@@ -52,5 +61,42 @@
 
     svg {
         fill: $white;
+    }
+}
+
+@media (max-width: 1070px) {
+
+    .helpTypesList {
+        gap: 30px;
+    }
+
+    .helpType {
+
+        p {
+            margin-left: 10px;
+            font-weight: 600;
+            line-height: 20px;
+            font-size: 16px;
+        }
+    }
+
+    .helpListBtn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 930px) {
+    .helpType {
+       
+        p {
+            margin-left: 5px;
+            font-size: 15px;
+        }
+    }
+
+    .helpListBtn {
+        width: 30px;
+        height: 30px;
     }
 }

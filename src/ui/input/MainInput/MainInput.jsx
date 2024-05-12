@@ -24,7 +24,7 @@ const MainInput = ({
     <div className={classNames(s.inputWrapper, wrapperClassName)}>
       {label && <label className={labelClassName}  htmlFor={label}>{label}</label>}
       <input
-        className={classNames(s.inputClassName, s.input)}
+        className={classNames(inputClassName, s.input)}
         maxLength={maxLength}
         pattern={pattern}
         required={required}

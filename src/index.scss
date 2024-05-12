@@ -1,4 +1,5 @@
 @use 'scss/colors.scss' as *;
+@use 'scss/fonts.scss' as *;
 
 /*
   1. Use a more-intuitive box-sizing model.
@@ -55,7 +56,7 @@ select {
 
 
 h2 {
-  font-size: 68px;
+  font-size: $fz-big;
   font-weight: 800;
   color: $gray-darker;
   line-height: 75px;
@@ -108,4 +109,22 @@ button {
   justify-content: space-between;
   gap: 25px;
   flex-direction: row;
+}
+
+
+@media (max-width: 655px) {
+
+  h2 {
+    font-size: $fz-large;
+    line-height: 80%;
+  }
+
+}
+
+@media (max-width: 400px) {
+
+  h2 {
+    font-size: $fz-large - 8px;
+  }
+
 }

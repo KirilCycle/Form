@@ -31,10 +31,15 @@
 $border: 5px;
 
 .tab {
-    width: 125px;
     font-size: 15px;
     margin-bottom: 40px;
+    transition: .2s ease-in-out 0s;
+
+    &:hover {
+        transform: scale(1.05);
+    }
 }
+
 
 .tabFirst {
     border-top-left-radius: $border;
@@ -48,4 +53,11 @@ $border: 5px;
 .tabLast {
     border-top-right-radius: $border;
     border-bottom-right-radius: $border;
+}
+
+@media (max-width: 400px) {
+    .tab {
+        font-size: 14px;
+        padding: 5px !important;
+    }
 }
