@@ -11,7 +11,7 @@ const PhysicalPersonForm = ({formRef, errorMessages = {} }) => {
   return (
       <form className={s.panelForm} >
         <fieldset> 
-          <div className={s.horizontal}>
+          <div className="horizontal">
             <MainInput onChange={handleChange} error={errorMessages.name}  name="name" label="Імя" />
             <MainInput onChange={handleChange}  error={errorMessages.surname} name="surname" label="Фамілія" />
           </div>

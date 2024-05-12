@@ -43,6 +43,7 @@ input, button, textarea, select {
   font: inherit;
 }
 
+
 h2 {
   font-size: 68px;
   font-weight: 800;
@@ -80,4 +81,11 @@ li:before{
 
 button {
   cursor: pointer;
+}
+
+.horizontal {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  flex-direction: row;
 }

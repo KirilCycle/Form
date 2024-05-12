@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./MainInput.module.scss";
+import { classNames } from "../../../utils/styling";
 
 const MainInput = ({
   type,
@@ -13,14 +14,17 @@ const MainInput = ({
   maxLength,
   pattern,
   required,
-  inputClassName,
   ariaLabel,
+  inputClassName,
+  wrapperClassName,
+  labelClassName,
 }) => {
+  
   return (
-    <div className={s.inputWrapper}>
-      {label && <label htmlFor={label}>{label}</label>}
+    <div className={classNames(s.inputWrapper, wrapperClassName)}>
+      {label && <label className={labelClassName}  htmlFor={label}>{label}</label>}
       <input
-        className={inputClassName}
+        className={classNames(s.inputClassName, s.input)}
         maxLength={maxLength}
         pattern={pattern}
         required={required}

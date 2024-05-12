@@ -1,0 +1,15 @@
+@use './colors' as *;
+
+@mixin main-input($min-height: 45px, $padding: 5px, $border-radius: 5px) {
+    border-radius: $border-radius;
+    padding-left: $padding;
+    border: none;
+    min-height: $min-height;
+    width: 100%;
+    background-color: $gray-light;
+  
+    &:focus {
+      outline: none;
+      border: 1px solid $gray-dark;
+    }
+  }

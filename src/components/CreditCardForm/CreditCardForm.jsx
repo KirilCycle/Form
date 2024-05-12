@@ -137,12 +137,13 @@ const CreditCardForm = ({ cardState, setCardState, errorMessages }) => {
 
   return (
     <form className={s.card}>
-      <label htmlFor={"cc-1"}>Номер Карти</label>
+      <div>
+      <label className={s.cardLabel} htmlFor={"cc-1"}>Номер Карти</label>
       <div
         onPaste={onInputPaste}
         onKeyDown={handleCctyping}
         className={s.ccInputs}
-      >  
+      > 
         <input
           ref={firstInputRef}
           type="tel"
@@ -173,26 +174,35 @@ const CreditCardForm = ({ cardState, setCardState, errorMessages }) => {
           required
           pattern="[0-9]{4}"
         />
-        {errorMessages.number && <p className={s.error}>{errorMessages.number}</p>}
+        {errorMessages.number && (
+          <p className={s.error}>{errorMessages.number}</p>
+        )}
       </div>
-      <MainInput
-        value={cardState.expiry}
-        onChange={handleInput}
-        error={errorMessages.expiry}
-        name="expiry"
-        label="Термін дії"
-        required
-      />
-      <MainInput
-        value={cardState.cvc}
-        onChange={handleInput}
-        error={errorMessages.cvc}
-        name="cvc"
-        type="tell"
-        maxLength="4"
-        label="CVC/CVV"
-        required
-      />
+      </div>
+      <div className="horizontal">
+        <MainInput
+          wrapperClassName={s.inputWrapper}
+          labelClassName={s.cardLabel}
+          value={cardState.expiry}
+          onChange={handleInput}
+          error={errorMessages.expiry}
+          name="expiry"
+          label="Термін дії"
+          required
+        />
+        <MainInput
+          wrapperClassName={s.inputWrapper}
+          labelClassName={s.cardLabel}
+          value={cardState.cvc}
+          onChange={handleInput}
+          error={errorMessages.cvc}
+          name="cvc"
+          type="tell"
+          maxLength="4"
+          label="CVC/CVV"
+          required
+        />
+      </div>
     </form>
   );
 };

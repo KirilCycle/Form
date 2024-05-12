@@ -2,6 +2,7 @@ import React from "react";
 import s from "./HelpTypesButtonsList.module.scss";
 import { keyboardNavigation } from "../../../../../../utils/accessebility";
 import PointerSlot from "../../../../../PointerSlot/PointerSlot";
+import { classNames } from "../../../../../../utils/styling";
 
 const HelpTypesButtonsList = ({
   helpTypes,
@@ -9,7 +10,7 @@ const HelpTypesButtonsList = ({
   setActiveTypeHelp,
 }) => {
   return (
-    <ul className={s.helpList}>
+    <ul className={s.helpTypesList}>
       {helpTypes.map(({ type, title, icon }, i) => {
         const isActive = type === activeHelpType;
         return (
@@ -22,14 +23,14 @@ const HelpTypesButtonsList = ({
             onKeyDown={(e) =>
               keyboardNavigation(e, i, helpTypes, "type", setActiveTypeHelp)
             }
-            className={s.helpListItem}
+            className={s.helpType}
             key={type}
           >
             <PointerSlot isActive={isActive}>
               <button
                 tabIndex={-1}
                 onClick={() => setActiveTypeHelp(type)}
-                className={s.helpListBtn}
+                className={classNames(s.helpListBtn, isActive && s.activeBtn )}
               >
                 {icon ? icon : null}
               </button>

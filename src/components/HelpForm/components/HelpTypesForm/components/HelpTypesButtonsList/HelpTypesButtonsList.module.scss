@@ -1,4 +1,6 @@
-.helpList {
+@use '../../../../../../scss/colors' as *;
+
+.helpTypesList {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(4, 1fr);
@@ -6,7 +8,7 @@
     align-items: center;
 }
 
-.helpListItem {
+.helpType {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -16,8 +18,15 @@
     }
 }
 
+//mixin to apply border color 
+@mixin border($color) {
+    border: 3px solid $color;
+}
+
+
 .helpListBtn {
     width: 70px;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
     height: 70px;
     border-radius: 15px;
     padding: 15px;
@@ -26,14 +35,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    background-color: rebeccapurple;
+    background-color: $white;
+    @include border($outline);
 
-    .helpTypeIcon {
-        width: 70px;
-        height: 70px;
-        border-radius: 15px;
-        fill: white;
+    svg {
+        fill: $outline;
     }
 
+}
+
+.activeBtn {
+    @include border($purple);
+    background-color: $purple;
+
+    svg {
+        fill: $white;
+    }
 }
