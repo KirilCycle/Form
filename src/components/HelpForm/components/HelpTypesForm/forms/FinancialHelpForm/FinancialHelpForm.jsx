@@ -6,6 +6,7 @@ import privat from "../../../../../../assets/icons/png/ПриватБанк.png"
 import paypal from "../../../../../../assets/icons/png/paypal.png";
 import webmoney from "../../../../../../assets/icons/png/webmoney.png";
 import terminal from "../../../../../../assets/icons/png/terminal.png";
+import { classNames } from "../../../../../../utils/styling";
 
 const providers = [
   {
@@ -30,7 +31,7 @@ const providers = [
   },
 ];
 
-const FinancialHelpForm = ({ formRef, errorMessages, setPayMethod }) => {
+const FinancialHelpForm = ({ formRef, errorMessages, setPayMethod, activePayMethod }) => {
   const [cardState, setCardState] = useState({
     cvc: "",
     expiry: "",
@@ -45,6 +46,7 @@ const FinancialHelpForm = ({ formRef, errorMessages, setPayMethod }) => {
     };
   }, [cardState]);
 
+
   return (
     <div className={s.financialHelpForm}>
       <div className={s.payMethodsContainer}>
@@ -53,7 +55,7 @@ const FinancialHelpForm = ({ formRef, errorMessages, setPayMethod }) => {
           {providers.map((p) => {
             return (
               <li onClick={() => setPayMethod(p.name)} key={p.name}>
-                <button className={s.payMethodButton}>
+                <button className={classNames(s.payMethodButton,activePayMethod === p.name && s.payMethodButtonActive)}>
                   <div className={s.logoWrapper}>
                     <img
                       className={s.payMethodLogo}

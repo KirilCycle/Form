@@ -50,16 +50,24 @@
   border: none;
   align-items: center;
   justify-content: space-between;
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 
   p {
     color: $white;
     @include title(0px);
   }
 
+  &:hover {
+    transform: translateY(3px);
+    transition: all 0.2s ease-in-out;
+
+  }
+
 }
 
 .payMethodButtonActive {
   background-color: $purple;
+
 }
 
 .logoWrapper {

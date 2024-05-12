@@ -50,7 +50,7 @@ const HelpForm = () => {
   return (
     <div>
       <ContactForm errorMessages={errorMessages} formRef={formRef} />
-      <HelpTypesForm errorMessages={errorMessages} setPayMethod={setPayMethod} formRef={formRef}  />
+      <HelpTypesForm errorMessages={errorMessages} payMethod={payMethod} setPayMethod={setPayMethod} formRef={formRef}  />
       <button onClick={submitForm}>Допомогти</button>
     </div>
   );

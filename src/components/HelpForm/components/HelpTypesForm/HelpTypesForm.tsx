@@ -6,36 +6,39 @@ import PointerSlot from "../../../PointerSlot/PointerSlot";
 import { keyboardNavigation } from "../../../../utils/accessebility";
 import WalletIcon from "../../../../assets/icons/svg/WalletIcon";
 import HelpTypesButtonsList from "./components/HelpTypesButtonsList/HelpTypesButtonList";
+import HandIcon from "../../../../assets/icons/svg/HandIcon";
+import TshirtIcon from "../../../../assets/icons/svg/TshirtIcon";
+import HeartIcon from "../../../../assets/icons/svg/HeartIcon";
 
 
-const HelpTypesForm = ({formRef, errorMessages, setPayMethod}) => {
+const HelpTypesForm = ({formRef, errorMessages, setPayMethod, payMethod}) => {
   const [activeHelpType, setActiveTypeHelp] = useState("financial");
   
   const helpTypes = [
     {
       type: "action",
-      title: "Financial SUS aada",
-      icon: <WalletIcon/>
+      title: "Зробити",
+      icon: <HandIcon/>
     },
     {
       type: "financial",
-      title: "Financial",
+      title: "Фінансова допомога",
       icon: <WalletIcon/>,
     },
     {
       type: "material",
-      title: "Financial",
-      icon: <WalletIcon/>,
+      title: "Матеріальна допомога",
+      icon: <TshirtIcon/>,
     },
     {
       type: "volunteer",
-      title: "Financial",
-      icon: <WalletIcon/>,
+      title: "Волонтерство",
+      icon: <HeartIcon/>,
     },
   ];
 
   const helpBodies = {
-    financial: <FinancialHelpForm setPayMethod={setPayMethod} formRef={formRef} errorMessages={errorMessages} />,
+    financial: <FinancialHelpForm  activePayMethod={payMethod} setPayMethod={setPayMethod} formRef={formRef} errorMessages={errorMessages} />,
     action: <p>Action</p>,
     material:  <p>Material</p>,
     volunteer: <p>Volunteer</p>,
