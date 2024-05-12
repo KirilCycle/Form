@@ -15,10 +15,6 @@ const HelpTypesButtonsList = ({
         const isActive = type === activeHelpType;
         return (
           <div
-            role="tab"
-            id={`tab-${type}`}
-            aria-controls={`tabpanel-${type}`}
-            aria-selected={isActive}
             tabIndex={isActive ? 0 : -1}
             onKeyDown={(e) =>
               keyboardNavigation(e, i, helpTypes, "type", setActiveTypeHelp)
@@ -28,9 +24,13 @@ const HelpTypesButtonsList = ({
           >
             <PointerSlot isActive={isActive}>
               <button
+                role="tab"
+                id={`tab-${type}`}
+                aria-controls={`tabpanel-${type}`}
+                aria-selected={isActive}
                 tabIndex={-1}
                 onClick={() => setActiveTypeHelp(type)}
-                className={classNames(s.helpListBtn, isActive && s.activeBtn )}
+                className={classNames(s.helpListBtn, isActive && s.activeBtn)}
               >
                 {icon ? icon : null}
               </button>
