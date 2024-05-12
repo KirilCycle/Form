@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import s from "./HelpTypesForm.module.scss";
 import FinancialHelpForm from "./forms/FinancialHelpForm/FinancialHelpForm";
 import WalletIcon from "../../../../assets/icons/svg/WalletIcon";

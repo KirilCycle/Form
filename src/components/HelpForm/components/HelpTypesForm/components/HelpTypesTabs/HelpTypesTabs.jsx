@@ -39,12 +39,12 @@ const HelpTypesTabs = ({ tabs, activeType, setActiveType }) => {
           );
         })}
       </div>
-      <div className={s.helpBodyWrappper}>
+      <ul className={s.helpBodyWrappper}>
         {tabs.map(({ panel, type }) => {
           const isActive = type === activeType;
 
           return (
-            <div
+            <li
               role="tabpanel"
               aria-labelledby={`tab-${type}`}
               id={`tabpanel-${type}`}
@@ -53,10 +53,10 @@ const HelpTypesTabs = ({ tabs, activeType, setActiveType }) => {
               style={{ display: `${isActive ? "block" : "none"}` }}
             >
               {panel}
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </>
   );
 };
