@@ -5,31 +5,26 @@ import MainInput from "../../ui/input/MainInput/MainInput";
 const CreditCardForm = ({ formRef, errorMessages }) => {
   const firstInputRef = useRef(null);
 
-  console.log('CreditCardForm render')
+  console.log("CreditCardForm render");
 
   function collectIputValues() {
     let current = firstInputRef.current;
     let sumValue = "";
     while (current) {
-      console.log(current.value)
-      if (current.value && current.value !== 'undefined') {
-        sumValue += current.value;
-      }
+      sumValue += current.value;
       current = current.nextElementSibling;
     }
-
-    console.log(sumValue);
-    formRef.current.number = sumValue
+    formRef.current.number = sumValue;
   }
 
   function handleInput(e) {
-    formRef.current[e.target.name] = e.target.value
+    formRef.current[e.target.name] = e.target.value;
   }
 
   function handleCctyping(e) {
     const input = e.target;
     const key = e.key;
-    if (!isConnectedInput(input)) return
+    if (!isConnectedInput(input)) return;
 
     switch (key) {
       case "ArrowLeft": {
@@ -62,7 +57,10 @@ const CreditCardForm = ({ formRef, errorMessages }) => {
         ) {
           const next = input.nextElementSibling;
 
-          console.log('data to enter', next.value.substring(1, next.value.length))
+          console.log(
+            "data to enter",
+            next.value.substring(1, next.value.length)
+          );
           next.value = next.value.substring(1, next.value.length);
           next.focus();
           next.selectionStart = 0;
@@ -75,7 +73,10 @@ const CreditCardForm = ({ formRef, errorMessages }) => {
         if (input.selectionStart === 0 && input.selectionEnd === 0) {
           const prev = input.previousElementSibling;
 
-          console.log('data to enter', prev.value.substring(0, prev.value.length - 1))
+          console.log(
+            "data to enter",
+            prev.value.substring(0, prev.value.length - 1)
+          );
           prev.value = prev.value.substring(0, prev.value.length - 1);
           prev.focus();
           prev.selectionStart = prev.value.length;
@@ -98,10 +99,10 @@ const CreditCardForm = ({ formRef, errorMessages }) => {
   }
 
   function onInputChange(input, newValue) {
-    const start = input.selectionStart
-    const end = input.selectionEnd
-    updateInputValue(input, newValue, start, end)
-    focusInput(input, newValue.length + start)
+    const start = input.selectionStart;
+    const end = input.selectionEnd;
+    updateInputValue(input, newValue, start, end);
+    focusInput(input, newValue.length + start);
   }
 
   function updateInputValue(input, extraValue, start = 0, end = 0) {
@@ -110,7 +111,7 @@ const CreditCardForm = ({ formRef, errorMessages }) => {
       start
     )}${extraValue}${input.value.substring(end, 4)}`;
 
-    console.log('data to update', newValue.substring(0, 4))
+    console.log("data to update", newValue.substring(0, 4));
     input.value = newValue.substring(0, 4);
     if (newValue > 4) {
       const next = input.nextElementSibling;
@@ -144,52 +145,54 @@ const CreditCardForm = ({ formRef, errorMessages }) => {
   }
 
   function isConnectedInput(input) {
-    return input.matches("input")
+    return input.matches("input");
   }
 
   return (
     <form className={s.card}>
       <div>
-      <label className={s.cardLabel} htmlFor={"cc-1"}>Номер Карти</label>
-      <div
-        onPaste={onInputPaste}
-        onKeyDown={handleCctyping}
-        className={s.ccInputs}
-      > 
-        <input
-          ref={firstInputRef}
-          type="tel"
-          maxLength="4"
-          id="cc-1"
-          aria-label="Credit Card First 4 Digits"
-          required
-          pattern="[0-9]{4}"
-        />
-        <input
-          type="tel"
-          maxLength="4"
-          aria-label="Credit Card Second 4 Digits"
-          required
-          pattern="[0-9]{4}"
-        />
-        <input
-          type="tel"
-          maxLength="4"
-          aria-label="Credit Card Third 4 Digits"
-          required
-          pattern="[0-9]{4}"
-        />
-        <input
-          type="tel"
-          maxLength="4"
-          aria-label="Credit Card Fourth 4 Digits"
-          required
-          pattern="[0-9]{4}"
-        />
-        {/* {errorMessages.number && (
+        <label className={s.cardLabel} htmlFor={"cc-1"}>
+          Номер Карти
+        </label>
+        <div
+          onPaste={onInputPaste}
+          onKeyDown={handleCctyping}
+          className={s.ccInputs}
+        >
+          <input
+            ref={firstInputRef}
+            type="tel"
+            maxLength="4"
+            id="cc-1"
+            aria-label="Credit Card First 4 Digits"
+            required
+            pattern="[0-9]{4}"
+          />
+          <input
+            type="tel"
+            maxLength="4"
+            aria-label="Credit Card Second 4 Digits"
+            required
+            pattern="[0-9]{4}"
+          />
+          <input
+            type="tel"
+            maxLength="4"
+            aria-label="Credit Card Third 4 Digits"
+            required
+            pattern="[0-9]{4}"
+          />
+          <input
+            type="tel"
+            maxLength="4"
+            aria-label="Credit Card Fourth 4 Digits"
+            required
+            pattern="[0-9]{4}"
+          />
+        </div>
+        {errorMessages.number && (
           <p className={s.error}>{errorMessages.number}</p>
-        )} */}
-      </div>
+        )}
       </div>
       <div className="horizontal">
         <MainInput
