@@ -1,19 +1,12 @@
-.arrowPanel {
+@use '../../../../../../scss/colors.scss' as *;
+
+.helpBodyWrappper {
     width: 100%;
     position: relative;
     margin-top: 21px;
     width: 100%;
     min-height: 500px;
-    border: 2px solid gray;
+    border: 3px solid $gray-dark;
     border-radius: 20px;
     position: relative;
-}
-
-.triangleModifier {
-    position: absolute;
-    z-index: 3;
-    top: -23px;
-    // left: 50px;
-    
-    transform: translateX(37px);
 }

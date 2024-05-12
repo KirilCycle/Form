@@ -4,7 +4,7 @@ import FinancialHelpForm from "./forms/FinancialHelpForm/FinancialHelpForm";
 import HelpBodyWrapper from "./components/HelpBodyWrapper/HelpBodyWrapper"
 import PointerSlot from "../../../PointerSlot/PointerSlot";
 import { keyboardNavigation } from "../../../../utils/accessebility";
-import WalletIcon from "../../../../assets/icons/WalletIcon";
+import WalletIcon from "../../../../assets/icons/svg/WalletIcon";
 import HelpTypesButtonsList from "./components/HelpTypesButtonsList/HelpTypesButtonList";
 
 

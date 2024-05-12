@@ -28,9 +28,8 @@ const HelpForm = () => {
     formRef.current = inputFields;
   }, []);
 
-
   const submitForm = (e) => {
-    console.log(formRef.current,payMethod);
+
      setErrorMessages({
       name: 'Please enter',
       surname: 'Please enter',
@@ -52,7 +51,7 @@ const HelpForm = () => {
     <div>
       <ContactForm errorMessages={errorMessages} formRef={formRef} />
       <HelpTypesForm errorMessages={errorMessages} setPayMethod={setPayMethod} formRef={formRef}  />
-      <button onClick={submitForm} type="submit">Допомогти</button>
+      <button onClick={submitForm}>Допомогти</button>
     </div>
   );
 };
