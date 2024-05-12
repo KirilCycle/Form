@@ -10,11 +10,11 @@ const HelpTypesButtonsList = ({
   setActiveTypeHelp,
 }) => {
   return (
-    <ul className={s.helpTypesList}>
+    <div role="tablist" className={s.helpTypesList}>
       {helpTypes.map(({ type, title, icon }, i) => {
         const isActive = type === activeHelpType;
         return (
-          <li
+          <div
             role="tab"
             id={`tab-${type}`}
             aria-controls={`tabpanel-${type}`}
@@ -36,10 +36,10 @@ const HelpTypesButtonsList = ({
               </button>
             </PointerSlot>
             <p>{title}</p>
-          </li>
+          </div>
         );
       })}
-    </ul>
+    </div>
   );
 };
 
