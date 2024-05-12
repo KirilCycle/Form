@@ -50,7 +50,7 @@ const FinancialHelpForm = ({ formRef, errorMessages, setPayMethod, activePayMeth
   return (
     <div className={s.financialHelpForm}>
       <div className={s.payMethodsContainer}>
-        <p className={s.title}>Виберіть спосіб оплати</p>
+        <p className={s.title}>Cпосіб оплати</p>
         <ul className={s.payMethodsList}>
           {providers.map((p) => {
             return (
@@ -71,7 +71,7 @@ const FinancialHelpForm = ({ formRef, errorMessages, setPayMethod, activePayMeth
         </ul>
       </div>
       <div className={s.cardDataContainer}>
-        <div className={s.cardDataContent}>
+        <div>
         <p className={s.title}>Введіть наступні данні</p>
         <CreditCardForm
           errorMessages={errorMessages}

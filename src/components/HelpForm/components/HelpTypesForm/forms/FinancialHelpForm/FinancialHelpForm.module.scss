@@ -1,9 +1,8 @@
 @use '../../../../../../scss/colors' as *;
 
 .financialHelpForm {
-  padding: 10px;
   width: 100%;
-  min-height: 500px;
+  min-height: 270px;
   box-sizing: border-box;
   position: relative;
   padding: 20px;
@@ -88,12 +87,8 @@
 }
 
 .cardDataContainer {
-
   width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  .cardDataContent {
-  }
-
+  align-items: flex-end;
 }

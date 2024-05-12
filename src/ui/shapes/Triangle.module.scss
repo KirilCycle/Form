@@ -2,18 +2,20 @@
 .triangle {
     width: 0; 
     height: 0; 
-    border-left: 24px solid transparent;
-    border-right: 24px solid transparent;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
     border-bottom: 24px solid $gray-dark;
+    display: block;
 }
 
 .triangleInner {
     position: relative;
-    left: -20px;
-    top: 5px;
+    display: block;
+    left: -17px;
+    top: 6px;
     width: 0;
     height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
+    border-left: 17px solid transparent;
+    border-right: 17px solid transparent;
     border-bottom: 20px solid rgb(255, 255, 255);
 }

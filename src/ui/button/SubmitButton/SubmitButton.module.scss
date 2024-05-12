@@ -1,0 +1,35 @@
+@use '../../../scss/colors' as *;
+
+@mixin animation() {
+    background-position: right center;
+    color: $white;
+    text-decoration: none;
+}
+
+.submitBtn {
+    margin: 0 auto;
+    display: block;
+    margin-top: 52px;
+    max-width: 321px;
+    width: 100%;
+    color: $white;
+    font-weight: 700;
+    font-size: 23px;
+    padding: 18px;
+    background-image: linear-gradient(to right, #E55D87 0%, #5FC3E4 51%, #E55D87 100%);
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    transition: 0.5s;
+    background-size: 200% auto;
+    box-shadow: 0 0 20px #eee;
+
+    &:hover {
+        @include animation;
+    }
+
+    &:focus {
+        @include animation;
+    }
+
+}

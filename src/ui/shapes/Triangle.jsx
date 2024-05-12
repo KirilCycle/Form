@@ -3,11 +3,10 @@ import s from './Triangle.module.scss'
 
 const Triangle = () => {
   return (
-    <div className={s.triangle} >
-         <div className={s.triangleInner}>
-        
-        </div>
-    </div>
+    <span className={s.triangle} >
+         <span className={s.triangleInner}>
+        </span>
+    </span>
   )
 }
 

@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import HelpTypesForm from "./components/HelpTypesForm/HelpTypesForm";
 import ContactForm from "./components/СontactForm/ContactForm";
+import SubmitButton from "../../ui/button/SubmitButton/SubmitButton";
+import s from './HelpForm.module.scss';
 
 const inputFields = {
     name: "",
@@ -48,10 +50,10 @@ const HelpForm = () => {
   }
 
   return (
-    <div>
+    <div className={s.formContainer}>
       <ContactForm errorMessages={errorMessages} formRef={formRef} />
       <HelpTypesForm errorMessages={errorMessages} payMethod={payMethod} setPayMethod={setPayMethod} formRef={formRef}  />
-      <button onClick={submitForm}>Допомогти</button>
+      <SubmitButton/>
     </div>
   );
 };

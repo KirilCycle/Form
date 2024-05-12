@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import s from "./TabView.module.scss";
 import { keyboardNavigation } from "../../../../../utils/accessebility";
-import MainButton from "../../../../../ui/button/MainButton";
+import MainButton from "../../../../../ui/button/MainButton/MainButton";
 import { classNames } from "../../../../../utils/styling";
 
 const TabView = ({ tabs, active }) => {

@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./MainButton.module.scss";
-import { classNames } from "../../utils/styling";
+import { classNames } from "../../../utils/styling";
 
 const MainButton = ({ children, className, isActive,  ...options }) => {
   return (
