@@ -37,7 +37,7 @@ const TabView = ({ tabs, active }) => {
         {tabs.map(({name, body}) => {
           const isActive = name === activeTab
           return (
-            <div role={`tabpanel`} aria-labelledby={`tab-${name}`} id={`tabpanel-${name}`} tabIndex="0" key={name} onClick={() => setActiveTab(name)} style={{display: `${isActive ? 'block' : 'none'}`}}  className={s.tabWrapper}>
+            <div role={`tabpanel`} aria-labelledby={`tab-${name}`} id={`tabpanel-${name}`} tabIndex="0" key={name} style={{display: `${isActive ? 'block' : 'none'}`}}  className={s.tabWrapper}>
               {body}
             </div>
           );
