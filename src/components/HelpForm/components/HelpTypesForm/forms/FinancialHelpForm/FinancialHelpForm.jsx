@@ -13,26 +13,31 @@ const providers = [
     text: "Visa",
     name: "Visa",
     logo: visaico,
+    alt: "Visa Логотип"
   },
   {  
     text: "Приват 24",
     name: "privat",
     logo: privat,
+    alt: "ПриватБанк Логотип"
   },
   { 
     text: "PayPal",
     name: "PayPal",
     logo: paypal,
+    alt: "PayPal Логотип"
   },
   {
     text: "WebMoney",
     name: "WebMoney",
     logo: webmoney,
+    alt: "WebMoney Логотип"
   },
   {
     text: "Термінал України",
     name: "terminal",
     logo: terminal,
+    alt: "Термінал України Логотип"
   },
 ];
 
