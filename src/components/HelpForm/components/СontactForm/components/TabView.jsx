@@ -12,7 +12,6 @@ const TabView = ({ tabs, active }) => {
       <div role="tablist" className={s.tabButtons}>
         {tabs.map((tab, i) => {
           const isActive = tab.name === activeTab;
-
           return (
             <MainButton
               role="tab"

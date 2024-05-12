@@ -10,7 +10,7 @@ const HelpTypesButtonsList = ({
   setActiveTypeHelp,
 }) => {
   return (
-    <ul className={s.helpTypesList}>
+    <ul role="tablist" className={s.helpTypesList}>
       {helpTypes.map(({ type, title, icon }, i) => {
         const isActive = type === activeHelpType;
         return (
