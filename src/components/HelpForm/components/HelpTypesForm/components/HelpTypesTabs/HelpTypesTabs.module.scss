@@ -1,5 +1,16 @@
 @use '../../../../../../scss/colors' as *;
 
+.helpBodyWrappper {
+    width: 100%;
+    position: relative;
+    margin-top: 21px;
+    width: 100%;
+    min-height: 100px;
+    border: 3px solid $gray-dark;
+    border-radius: 20px;
+    position: relative;
+}
+
 .helpTypesList {
     display: flex;
     flex-wrap: wrap;

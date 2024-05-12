@@ -1,19 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
 import s from "./HelpTypesForm.module.scss";
 import FinancialHelpForm from "./forms/FinancialHelpForm/FinancialHelpForm";
-import HelpBodyWrapper from "./components/HelpBodyWrapper/HelpBodyWrapper";
-import PointerSlot from "../../../PointerSlot/PointerSlot";
-import { keyboardNavigation } from "../../../../utils/accessebility";
 import WalletIcon from "../../../../assets/icons/svg/WalletIcon";
-import HelpTypesButtonsList from "./components/HelpTypesButtonsList/HelpTypesButtonList";
 import HandIcon from "../../../../assets/icons/svg/HandIcon";
 import TshirtIcon from "../../../../assets/icons/svg/TshirtIcon";
 import HeartIcon from "../../../../assets/icons/svg/HeartIcon";
+import HelpTypesTabs from "./components/HelpTypesTabs/HelpTypesTabs";
 
 const HelpTypesForm = ({ formRef, errorMessages, setPayMethod, payMethod }) => {
   const [activeHelpType, setActiveTypeHelp] = useState("financial");
 
-  const helpTypes = [
+  const helpTypesTabs = [
     {
       type: "action",
       title: "Зробити",
@@ -51,15 +48,7 @@ const HelpTypesForm = ({ formRef, errorMessages, setPayMethod, payMethod }) => {
     <div className={s.helpContainer}>
       <h2>Види допомоги</h2>
       <p className={s.helpDescritption}>Ви можете змінити вид допомоги</p>
-      <HelpTypesButtonsList
-        setActiveTypeHelp={setActiveTypeHelp}
-        activeHelpType={activeHelpType}
-        helpTypes={helpTypes}
-      />
-      <HelpBodyWrapper
-        activeTab={activeHelpType}
-        tabPanels={helpTypes}
-      ></HelpBodyWrapper>
+      <HelpTypesTabs tabs={helpTypesTabs} activeType={activeHelpType} setActiveType={setActiveTypeHelp} />
     </div>
   );
 };
