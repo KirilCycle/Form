@@ -99,7 +99,7 @@ const validators = {
 
     if (str.length !== 4 || !/^\d+$/.test(str)) { return "Некорктний формат"}
   
-    return true;
+    return false;
   },
   cvc: (string) => {
     const cvcRegex = /^[0-9]{3,4}$/;
@@ -136,7 +136,8 @@ const HelpForm = () => {
 
     if (errors) {
       setErrorMessages(errors);
-    } else {;
+    } else {
+      alert("Форма успішно відправлена");
       setErrorMessages({});
     }
 
