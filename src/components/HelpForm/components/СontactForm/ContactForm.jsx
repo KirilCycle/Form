@@ -14,7 +14,7 @@ const ContactForm = ({ formRef, errorMessages }) => {
     },
     {
       title: "Юр.Особа",
-      name: "wewe",
+      name: "lawPerson",
       body: <p>Null</p>,
     },
   ];
