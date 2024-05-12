@@ -28,13 +28,14 @@ const PhysicalPersonForm = ({ formRef, errorMessages = {} }) => {
             minlength="3"
           />
         </div>
-        <MainInput
-          onChange={handleChange}
-          error={errorMessages.company}
-          name="company"
-          label="Назва компанії, організації"
-          required
-        />
+          <MainInput
+            wrapperClassName={s.inputToolTip}
+            onChange={handleChange}
+            error={errorMessages.company}
+            name="company"
+            label="Назва компанії, організації"
+            required
+          />
         <MainInput
           onChange={handleChange}
           error={errorMessages.email}
