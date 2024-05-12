@@ -42,6 +42,8 @@ $gap: $gap-medium + 5px;
     color: $blue;
     right: -90px;
     font-weight: 600;
+    top: calc(50% + 12px);
+    transform: translateY(-50%);
 }
 
 @media (max-width: 1140px) {
