@@ -71,7 +71,7 @@ const FinancialHelpForm = ({ formRef, errorMessages, setPayMethod, activePayMeth
                     <img
                       className={s.payMethodLogo}
                       src={p.logo}
-                      alt={p.text}
+                      alt={p.alt}
                     />
                   </div>
                   <p>{p.text}</p>

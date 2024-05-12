@@ -10,11 +10,15 @@ const HelpTypesButtonsList = ({
   setActiveTypeHelp,
 }) => {
   return (
-    <ul role="tablist" className={s.helpTypesList}>
+    <ul className={s.helpTypesList}>
       {helpTypes.map(({ type, title, icon }, i) => {
         const isActive = type === activeHelpType;
         return (
           <li
+            role="tab"
+            id={`tab-${type}`}
+            aria-controls={`tabpanel-${type}`}
+            aria-selected={isActive}
             tabIndex={isActive ? 0 : -1}
             onKeyDown={(e) =>
               keyboardNavigation(e, i, helpTypes, "type", setActiveTypeHelp)
@@ -24,14 +28,9 @@ const HelpTypesButtonsList = ({
           >
             <PointerSlot isActive={isActive}>
               <button
-                role="tab"
-                id={`tab-${type}`}
-                aria-controls={`tabpanel-${type}`}
-                aria-selected={isActive}
-                type="button"
                 tabIndex={-1}
                 onClick={() => setActiveTypeHelp(type)}
-                className={classNames(s.helpListBtn, isActive && s.activeBtn)}
+                className={classNames(s.helpListBtn, isActive && s.activeBtn )}
               >
                 {icon ? icon : null}
               </button>
