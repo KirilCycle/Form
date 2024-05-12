@@ -128,15 +128,18 @@ const HelpForm = () => {
     for (let key in inputFields) {
       if (validators[key]) {
         const error = validators[key](formRef.current[key]);
-        errors ? (errors[key] = error) : errors = { [key]: error };
+        if (error) { 
+          errors ? (errors[key] = error) : errors = { [key]: error }
+        }
       }
     }
 
     if (errors) {
       setErrorMessages(errors);
-    } else {
+    } else {;
       setErrorMessages({});
     }
+
   };
 
   return (

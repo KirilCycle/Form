@@ -15,7 +15,6 @@
 }
 
 .ccInputs {
-    position: relative;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 5px;
@@ -31,7 +30,6 @@
     color: red;
     font-size: 12px;
     font-weight: 600;
-    position: absolute;
     bottom: -20px;
 
 }
