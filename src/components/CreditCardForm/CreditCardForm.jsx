@@ -2,25 +2,28 @@ import React, { useRef } from "react";
 import s from "./CreditCardForm.module.scss";
 import MainInput from "../../ui/input/MainInput/MainInput";
 
-const CreditCardForm = ({ cardState, setCardState, errorMessages }) => {
+const CreditCardForm = ({ formRef, errorMessages }) => {
   const firstInputRef = useRef(null);
+
+  console.log('CreditCardForm render')
 
   function collectIputValues() {
     let current = firstInputRef.current;
     let sumValue = "";
     while (current) {
-      sumValue += current.value;
+      console.log(current.value)
+      if (current.value && current.value !== 'undefined') {
+        sumValue += current.value;
+      }
       current = current.nextElementSibling;
     }
-    setCardState((prev) => {
-      return { ...prev, number: sumValue };
-    });
+
+    console.log(sumValue);
+    formRef.current.number = sumValue
   }
 
   function handleInput(e) {
-    setCardState((prev) => {
-      return { ...prev, [e.target.name]: e.target.value };
-    });
+    formRef.current[e.target.name] = e.target.value
   }
 
   function handleCctyping(e) {
@@ -59,6 +62,7 @@ const CreditCardForm = ({ cardState, setCardState, errorMessages }) => {
         ) {
           const next = input.nextElementSibling;
 
+          console.log('data to enter', next.value.substring(1, next.value.length))
           next.value = next.value.substring(1, next.value.length);
           next.focus();
           next.selectionStart = 0;
@@ -71,6 +75,7 @@ const CreditCardForm = ({ cardState, setCardState, errorMessages }) => {
         if (input.selectionStart === 0 && input.selectionEnd === 0) {
           const prev = input.previousElementSibling;
 
+          console.log('data to enter', prev.value.substring(0, prev.value.length - 1))
           prev.value = prev.value.substring(0, prev.value.length - 1);
           prev.focus();
           prev.selectionStart = prev.value.length;
@@ -104,6 +109,8 @@ const CreditCardForm = ({ cardState, setCardState, errorMessages }) => {
       0,
       start
     )}${extraValue}${input.value.substring(end, 4)}`;
+
+    console.log('data to update', newValue.substring(0, 4))
     input.value = newValue.substring(0, 4);
     if (newValue > 4) {
       const next = input.nextElementSibling;
@@ -179,16 +186,15 @@ const CreditCardForm = ({ cardState, setCardState, errorMessages }) => {
           required
           pattern="[0-9]{4}"
         />
-        {errorMessages.number && (
+        {/* {errorMessages.number && (
           <p className={s.error}>{errorMessages.number}</p>
-        )}
+        )} */}
       </div>
       </div>
       <div className="horizontal">
         <MainInput
           wrapperClassName={s.inputWrapper}
           labelClassName={s.cardLabel}
-          value={cardState.expiry}
           onChange={handleInput}
           error={errorMessages.expiry}
           name="expiry"
@@ -198,7 +204,6 @@ const CreditCardForm = ({ cardState, setCardState, errorMessages }) => {
         <MainInput
           wrapperClassName={s.inputWrapper}
           labelClassName={s.cardLabel}
-          value={cardState.cvc}
           onChange={handleInput}
           error={errorMessages.cvc}
           name="cvc"

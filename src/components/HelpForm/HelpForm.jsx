@@ -125,16 +125,12 @@ const HelpForm = () => {
     
     let errors = null;
     
-    // console.log(errors, "AAAAAXXXX");
     for (let key in inputFields) {
       if (validators[key]) {
         const error = validators[key](formRef.current[key]);
-        // console.log(key, error, formRef.current[key]);
         errors ? (errors[key] = error) : errors = { [key]: error };
       }
     }
-
-    // console.log(formRef.current, "SUBMIT");
 
     if (errors) {
       setErrorMessages(errors);

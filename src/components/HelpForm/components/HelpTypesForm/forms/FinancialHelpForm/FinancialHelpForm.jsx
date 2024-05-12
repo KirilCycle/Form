@@ -42,21 +42,6 @@ const providers = [
 ];
 
 const FinancialHelpForm = ({ formRef, errorMessages, setPayMethod, activePayMethod }) => {
-  const [cardState, setCardState] = useState({
-    cvc: "",
-    expiry: "",
-    number: "",
-  });
-
-  useEffect(() => {
-    formRef.current = { ...formRef.current, ...cardState };
-
-    return () => {
-      formRef.current = { ...formRef.current, cvc: "", expiry: "", number: "" };
-    };
-  }, [cardState]);
-
-  console.log(activePayMethod, 'A')
 
   return (
     <div className={s.financialHelpForm}>
@@ -86,8 +71,7 @@ const FinancialHelpForm = ({ formRef, errorMessages, setPayMethod, activePayMeth
         <p className={s.title}>Введіть наступні данні</p>
         <CreditCardForm
           errorMessages={errorMessages}
-          cardState={cardState}
-          setCardState={setCardState}
+          formRef={formRef}
         />
         </div>
       </div>
