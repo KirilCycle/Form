@@ -6,6 +6,13 @@ import { classNames } from "../../../../../../utils/styling";
 
 const HelpTypesTabs = ({ tabs, activeType, setActiveType }) => {
   return (
+    //================================================================
+    //
+    //i decided not to use ul and li tags, for tabs component according to W3C
+    //
+    //
+    //#Note TabView Component above can be modified and used for second tabs
+    //================================================================
     <>
       <div role="tablist" className={s.helpTypesList}>
         {tabs.map(({ type, title, icon }, i) => {
@@ -27,7 +34,7 @@ const HelpTypesTabs = ({ tabs, activeType, setActiveType }) => {
                   aria-label={`select tab ${type}`}
                   aria-controls={`tabpanel-${type}`}
                   aria-selected={isActive}
-                  tabIndex={-1}
+                  tabIndex={isActive ? 0 : -1} // Ensure active tab is focusable
                   onClick={() => setActiveType(type)}
                   className={classNames(s.helpListBtn, isActive && s.activeBtn)}
                 >
@@ -42,13 +49,12 @@ const HelpTypesTabs = ({ tabs, activeType, setActiveType }) => {
       <div className={s.helpBodyWrappper}>
         {tabs.map(({ panel, type }) => {
           const isActive = type === activeType;
-
           return (
             <div
               role="tabpanel"
               aria-labelledby={`tab-${type}`}
               id={`tabpanel-${type}`}
-              tabIndex="0"
+              tabIndex={isActive ? 0 : -1} // Ensure active tabpanel is focusable
               key={type}
               style={{ display: `${isActive ? "block" : "none"}` }}
             >
