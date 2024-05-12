@@ -27,6 +27,7 @@ const HelpTypesButtonsList = ({
                 type="button"
                 role="tab"
                 id={`tab-${type}`}
+                aria-label={`select tab ${type}`}
                 aria-controls={`tabpanel-${type}`}
                 aria-selected={isActive}
                 tabIndex={-1}
